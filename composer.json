@@ -2,11 +2,15 @@
 	"name": "shineunited/wordpress-proxy-extensions",
 	"type": "composer-plugin",
 	"license": "MIT",
+	"description": "Enables support for HTTP proxies in WordPress.",
+	"keywords": [
+		"wordpress",
+		"proxy"
+	],
 	"require": {
 		"php": ">=8.0",
 		"composer-plugin-api": "^2.0",
-		"shineunited/conductor": "*",
-		"shineunited/wordpress-installer": "*"
+		"shineunited/wordpress-installer": "^1.0"
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^3.0",
