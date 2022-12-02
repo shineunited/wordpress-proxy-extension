@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace ShineUnited\WordPress\Proxy\Provider;
 
 use ShineUnited\WordPress\Installer\Capability\ExtensionProvider as ExtensionProviderCapability;
-use ShineUnited\WordPress\Installer\Extension\BeforeInitExtension;
+use ShineUnited\WordPress\Installer\Extension\RequirePathExtension;
+use ShineUnited\WordPress\Installer\Extension\InitializeConfigExtension;
 
 /**
  * Extension Provider
@@ -26,8 +27,8 @@ class ExtensionProvider implements ExtensionProviderCapability {
 	 */
 	public function getExtensions(): array {
 		return [
-			new BeforeInitExtension(__DIR__ . '/../../inc/remote-addr.php'),
-			new BeforeInitExtension(__DIR__ . '/../../inc/https.php'),
+			new RequirePathExtension(__DIR__ . '/../../inc/remote-addr.php', InitializeConfigExtension::PRIORITY - 1),
+			new RequirePathExtension(__DIR__ . '/../../inc/https.php', InitializeConfigExtension::PRIORITY - 1),
 		];
 	}
 }
